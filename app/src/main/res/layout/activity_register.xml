@@ -157,7 +157,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnRegisterRegis"
             android:text="Register"
-            android:background="#3333FF"/>
+            android:background="@drawable/background_button"/>
     </LinearLayout>
 
 </RelativeLayout>

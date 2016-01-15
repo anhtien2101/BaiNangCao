@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvTitleLogin;
@@ -37,13 +38,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (id == R.id.btnLogin) {
             String username = edtUsername.getText().toString();
             String pass = edtPass.getText().toString();
-            if (username.equals("admin") && pass.equals("1234")) {
-                Intent intentLogin = new Intent(MainActivity.this, LoginSuccessActivity.class);
-                startActivity(intentLogin);
+            if (username.equals("") || pass.equals("")) {
+                Toast.makeText(MainActivity.this, "Enter all data, please!", Toast.LENGTH_LONG).show();
+            } else {
+                if (username.equals("admin") && pass.equals("1234")) {
+                    Intent intentLogin = new Intent(MainActivity.this, LoginSuccessActivity.class);
+                    startActivity(intentLogin);
+                }
             }
-        } else {
+        } else { // btn Register
             Intent intentRegister = new Intent(MainActivity.this, RegisterActivity.class);
             startActivity(intentRegister);
         }
+
     }
+
 }
